@@ -17,7 +17,7 @@ def getNeighbors(trainData, testData, k):
     for trainSample in trainData: # We compute each euclidian distance between the train samples (the ones in all the other folds) and the current test sample
         distance = euclideanDistance(testData, trainSample)
         distances.append((trainSample, distance))
-    distances.sort(key=lambda x: x[1]) # We sort the list
+    distances.sort(key=lambda x: x[1]) # We sort the list by distance
     neighbors = list()
     for i in range(k): # We take the k nearest one
     	neighbors.append(distances[i][0])
