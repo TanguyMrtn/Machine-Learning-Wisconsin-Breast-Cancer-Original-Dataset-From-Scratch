@@ -2,7 +2,7 @@
 
 How to run this project
 
-1) Pull this project
+1) Pull this project (and unzip)
 
 2) Open a command prompt / linux shell
 
