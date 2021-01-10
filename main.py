@@ -10,6 +10,8 @@ if __name__ == '__main__':
     # Number of fold and number of neighbor (parameters)
     numberOfFold = 10
     numberOfNeighbor = 3
+
+    # Input from command line (command prompt or linux shell)
     if len(sys.argv) == 3:
         numberOfFold=int(sys.argv[1])
         numberOfNeighbor=int(sys.argv[2])
