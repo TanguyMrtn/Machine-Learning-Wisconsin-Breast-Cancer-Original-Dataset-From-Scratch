@@ -14,7 +14,7 @@ If you want to run the project from the source files:
 
 5) Install the required library matplotlib (pip install matplotlib)
 
-6) Run "main.py" in the command prompt / linux shell, be sure that you are in the project root (especially if you are runing from an IDE like VSCode, Spyder...)
+6) Run "main.py" in the command prompt / linux shell, be sure that you are in the project root (if you are runing from an IDE like VSCode, Spyder... be sure to have open the whole project and not only the main.py file)
 
 7) If you want to set a custom number for k-fold (minimum 2, default 10) and k-neighbors (default 3, odd number), you can do it : run "main.py kFold kNeighbor" (you need to specifiy both!) in the command prompt / linux shell, example : main.py 10 3
 
