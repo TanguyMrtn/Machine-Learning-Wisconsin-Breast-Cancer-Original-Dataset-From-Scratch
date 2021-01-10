@@ -7,7 +7,7 @@ def buildConfusionMatrix(expected, predicted):
     matrix = [[0,0],[0,0]] # Binary classification problem
     for currentPrediction, expectedPrediction in zip(predicted, expected):
         matrix[int(currentPrediction)][int(expectedPrediction)] += 1 
-    matrix.reverse()
+    matrix.reverse() # Reverse for having TP at the right position ([0][0])
     matrix[0].reverse()
     matrix[1].reverse()
     return matrix
@@ -88,6 +88,7 @@ def processAllEvaluationMeasures(evaluationMeasures,numberOfFold,dataSize):
     meanSensitivity = 0
     meanSpecificity = 0
     meanFscore = 0
+
     for evaluationMeasure in evaluationMeasures:
         meanAccuracy += evaluationMeasure[0]
         meanPrecisionPositive += evaluationMeasure[1]
@@ -95,15 +96,23 @@ def processAllEvaluationMeasures(evaluationMeasures,numberOfFold,dataSize):
         meanSensitivity += evaluationMeasure[3]
         meanSpecificity += evaluationMeasure[4]
         meanFscore += evaluationMeasure[5]
+
     meanAccuracy = round(meanAccuracy / numberOfFold,3)
     confidenceInterval = round(1.96*sqrt((meanAccuracy*(1-meanAccuracy))/dataSize),3)
+
+    # Standard deviation of the mean accuracy
+    __stdev = 0
+    for evaluationMeasure in evaluationMeasures:
+        __stdev += (evaluationMeasure[0] - meanAccuracy)**2
+    stdev = round(__stdev / numberOfFold,5)
+
     meanPrecisionPositive = round(meanPrecisionPositive / numberOfFold,3)
     meanPrecisionNegative = round(meanPrecisionNegative / numberOfFold,3)
     meanSensitivity = round(meanSensitivity / numberOfFold,3)
     meanSpecificity = round(meanSpecificity / numberOfFold,3)
     meanFscore = round(meanFscore / numberOfFold,3)
 
-    print("Mean Accuracy : {accuracy} +/- {interval} (95 percent confidence interval)".format(accuracy=meanAccuracy,interval=confidenceInterval))
+    print("Mean Accuracy : {accuracy} +/- {interval} (95 percent confidence interval) (Standard deviation : {stdev})".format(accuracy=meanAccuracy,interval=confidenceInterval,stdev=stdev))
     print("Mean Positive prediction value : {}".format(meanPrecisionPositive))
     print("Mean Negative prediction value : {}".format(meanPrecisionNegative))
     print("Mean Sensitivity : {}".format(meanSensitivity))
