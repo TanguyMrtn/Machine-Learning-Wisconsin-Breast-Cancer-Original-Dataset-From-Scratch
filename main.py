@@ -15,7 +15,7 @@ if __name__ == '__main__':
         numberOfNeighbor=int(sys.argv[2])
 
     # Load the data
-    with open('cleaned_data.csv', newline='') as csvfile:
+    with open('datasets/cleaned_data.csv', newline='') as csvfile:
         data = list(csv.reader(csvfile))
         data.remove(data[0])
 
