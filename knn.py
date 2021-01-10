@@ -25,7 +25,7 @@ def getNeighbors(trainData, testData, k):
 
 def predictClasses(trainData, testData, k):
     '''
-    This function predicts the class of the 'testData' sample
+    This function predicts the class of the samples in 'testData', the neighbors are the samples in trainData
     '''
     predictions = list()
     probabilityPredictions = list()
