@@ -20,7 +20,7 @@ If you want to run the project from the source files:
 
 If you want to run the project from the executable file:
 
-4) run "project.exe" in the command prompt / linux shell
+4) Run "project.exe" in the command prompt / linux shell
 
 5) If you want to set a custom number for k-fold (minimum 2, default 10) and k-neighbors (default 3, odd number), you can do it : run "project.exe kFold kNeighbor" (you need to specifiy both!) in the command prompt / linux shell, example : project.exe 10 3
 
